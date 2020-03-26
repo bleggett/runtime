@@ -18,9 +18,8 @@ namespace System
         // in particular when input is redirected and data may be consumed from a larger source. This 4K default size is the
         // same as is currently used by most other environments/languages tried.
         internal const int ReadBufferSize = 4096;
-        // There's no visible functional impact to the write buffer size, and as we auto flush on every write,
-        // there's little benefit to having a large buffer.  So we use a smaller buffer size to reduce working set.
-        private const int WriteBufferSize = 256;
+        // Ben thinks 128 is a better number because it is smaller
+        private const int WriteBufferSize = 128;
 
         private static object InternalSyncObject = new object(); // for synchronizing changing of Console's static fields
         private static TextReader? s_in;
